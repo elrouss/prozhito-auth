@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import { SignInForm } from '@/components/auth-form/components/sign-in-form';
-import styles from './home.module.scss';
+import styles from './index.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 

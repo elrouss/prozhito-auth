@@ -1,4 +1,5 @@
 import React from 'react';
+import { HeadingH1Default } from '@/shared/headings/heading-h1-default/ heading-h1-default';
 import { DefaultButton } from '@/shared/buttons/default-btn/default-btn';
 import styles from './auth-form.module.scss';
 
@@ -17,7 +18,7 @@ export const AuthForm = ({
   onSubmit,
 }: IAuthFormProps) => (
   <div className={styles.wrapper}>
-    <h1>{heading}</h1>
+    <HeadingH1Default label={heading} />
     <form className={styles.form} onSubmit={onSubmit}>
       {children}
       <DefaultButton label={buttonLabel} isLoading={isLoading} />

@@ -1,0 +1,29 @@
+%heading-size-large {
+  font-size: $size-heading-1;
+  font-weight: 700;
+  line-height: $line-height-heading-1;
+}
+
+%heading-size-medium {
+  font-size: $size-heading-2;
+  font-weight: 700;
+  line-height: $line-height-heading-2;
+}
+
+%heading-size-small {
+  font-size: $size-heading-3;
+  font-weight: 600;
+  line-height: $line-height-heading-3;
+  letter-spacing: $letter-spacing-main;
+}
+
+%text-size-large {
+  font-size: $size-text-large;
+  line-height: $line-height-text-large;
+}
+
+%text-size-medium {
+  font-size: $size-text-medium;
+  line-height: $line-height-text-medium;
+  letter-spacing: $letter-spacing-main;
+}
