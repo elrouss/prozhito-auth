@@ -1,10 +1,14 @@
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.scss';
+import { useState } from 'react';
+import { SignInForm } from '@/components/auth-form/components/sign-in-form';
+import styles from './home.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export const HomePage = () => {
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
     <>
       <Head>
@@ -14,8 +18,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        <p>Hello World!</p>
+        {!isAuth ? <SignInForm /> : 'Hello World!'}
       </main>
     </>
   );
-}
+};
+
+export default HomePage;

@@ -5,7 +5,7 @@ import styles from './input.module.scss';
 interface IInputProps extends React.HTMLAttributes<HTMLInputElement> {
   label: string;
   type?: 'email' | 'password' | 'text';
-  autoComplete: 'on' | 'off';
+  autoComplete?: 'on' | 'off';
 }
 
 export const Input = ({
