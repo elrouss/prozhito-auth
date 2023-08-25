@@ -56,7 +56,15 @@
                 "unnamedComponents": "arrow-function"
             }
         ],
+        "react/require-default-props": [
+            "error",
+            {
+                "forbidDefaultForRequired": true,
+                "functions": "defaultArguments"
+            }
+        ],
         "import/prefer-default-export": "off",
+        "import/extensions": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "off"
     }
