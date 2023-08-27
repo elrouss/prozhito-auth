@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check": "prettier --check .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@types/node": "20.5.4",
@@ -30,7 +32,13 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.3",
     "prettier": "^3.0.2",
     "sass": "^1.66.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run check"
+    }
   }
 }
