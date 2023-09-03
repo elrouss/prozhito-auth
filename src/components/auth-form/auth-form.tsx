@@ -7,6 +7,7 @@ interface IAuthFormProps extends React.HTMLAttributes<HTMLFormElement> {
   children: React.ReactElement;
   heading: string;
   buttonLabel: string;
+  isValid: boolean;
   isLoading?: boolean;
 }
 
@@ -15,13 +16,19 @@ export const AuthForm = ({
   heading,
   buttonLabel,
   isLoading = false,
+  isValid,
   onSubmit,
 }: IAuthFormProps) => (
   <div className={styles.wrapper}>
     <HeadingH1Default label={heading} />
     <form className={styles.form} onSubmit={onSubmit}>
       {children}
-      <DefaultButton type="submit" label={buttonLabel} isLoading={isLoading} />
+      <DefaultButton
+        type="submit"
+        label={buttonLabel}
+        disabled={!isValid}
+        isLoading={isLoading}
+      />
     </form>
   </div>
 );
