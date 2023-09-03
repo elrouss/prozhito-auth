@@ -1,14 +1,14 @@
 export const navLinks = [
   {
     name: 'auth',
-    href: '/test-auth',
+    href: 'https://auth.domain.com',
   },
   {
     name: 'internal',
-    href: '/test-internal',
+    href: 'https://internal.domain.com',
   },
   {
     name: 'public',
-    href: '/test-public',
+    href: 'https://public.domain.com',
   },
 ];
