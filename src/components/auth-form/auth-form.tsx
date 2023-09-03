@@ -21,7 +21,7 @@ export const AuthForm = ({
     <HeadingH1Default label={heading} />
     <form className={styles.form} onSubmit={onSubmit}>
       {children}
-      <DefaultButton label={buttonLabel} isLoading={isLoading} />
+      <DefaultButton type="submit" label={buttonLabel} isLoading={isLoading} />
     </form>
   </div>
 );
