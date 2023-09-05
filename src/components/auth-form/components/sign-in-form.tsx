@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { signIn } from 'next-auth/react';
 import { AuthForm } from '../auth-form';
 import { useFormData } from '@/hooks/useFormData';
 import { Input } from '@/shared/input/input';
@@ -6,7 +7,10 @@ import { regexEmail, regexPassword } from '@/utils/regex';
 import styles from './sign-in-form.module.scss';
 
 export const SignInForm = () => {
-  const { data, handleData, isFormValid, setIsFormValid } = useFormData();
+  const { data, setData, handleData, isFormValid, setIsFormValid } =
+    useFormData();
+
+  useEffect(() => setData({ email: '', password: '' }), []);
 
   useEffect(() => {
     setIsFormValid(
@@ -14,10 +18,24 @@ export const SignInForm = () => {
     );
   }, [data]);
 
-  const onSignIn = (evt: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
 
-    console.log(data);
+    try {
+      const res = await signIn('credentials', {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      });
+
+      if (!res!.ok) {
+        throw new Error(`Упс! Произошла ошибка ${res!.status} :(`);
+      }
+
+      return res;
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -25,7 +43,7 @@ export const SignInForm = () => {
       heading="Авторизация"
       buttonLabel="Войти"
       isValid={isFormValid}
-      onSubmit={onSignIn}
+      onSubmit={onSubmit}
     >
       <div className={styles.inputs}>
         <Input

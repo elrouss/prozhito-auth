@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import styles from './input.module.scss';
 
@@ -18,7 +18,11 @@ export const Input = ({
   autoComplete = 'off',
   onChange,
 }: IInputProps) => {
-  const id = nanoid();
+  const [id, setId] = useState('');
+
+  useEffect(() => {
+    setId(nanoid());
+  }, []);
 
   return (
     <div className={styles.wrapper}>
